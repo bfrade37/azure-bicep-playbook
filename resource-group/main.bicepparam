@@ -1,7 +1,6 @@
-```bicep
 using './main.bicep'
 
-param resourceGroupName = 'rg-storage-dev'
+param resourceGroupName = 'rg-storage-lab'
 param location = 'northeurope'
 
 param tags = {
@@ -9,4 +8,3 @@ param tags = {
   ManagedBy: 'Bicep'
   Project: 'AzureBicepPlaybook'
 }
-```

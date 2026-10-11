@@ -34,7 +34,7 @@ The goal of this repository is to build a collection of modular, reusable, and c
 Authenticate with Azure:
 
 ```bash
-az login
+az login --use-device-code
 az account set --subscription "<subscription-id>"
 ```
 
@@ -57,22 +57,21 @@ Creates a Virtual Network with a configurable address space, location, and resou
 
 ### Preview deployment
 
-```bash
+
 az deployment group what-if \
   --resource-group rg-network-lab \
   --template-file networking/vnet/main.bicep \
   --parameters networking/vnet/main.bicepparam
-```
+
 
 ### Deploy
 
-```bash
 az deployment group create \
   --resource-group rg-network-lab \
   --name vnet-deployment \
   --template-file networking/vnet/main.bicep \
   --parameters networking/vnet/main.bicepparam
-```
+
 
 ## Networking: Network Security Group
 
