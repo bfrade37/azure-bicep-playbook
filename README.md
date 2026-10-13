@@ -66,11 +66,18 @@ az deployment group what-if \
 
 ### Deploy
 
-az deployment group create \
-  --resource-group rg-network-lab \
-  --name vnet-deployment \
-  --template-file networking/vnet/main.bicep \
-  --parameters networking/vnet/main.bicepparam
+cd resource-group
+
+az bicep build --file resource-group/main.bicep
+az deployment group validate --resource-group rg-bicep-lab --template-file resource-group/main.bicep --parameters resource-group/main.bicepparam
+az deployment group what-if --resource-group rg-bicep-lab --template-file resource-group/main.bicep --parameters resource-group/main.bicepparam
+az deployment group create --resource-group rg-bicep-lab --template-file resource-group/main.bicep --parameters resource-group/main.bicepparam
+az resource list --resource-group rg-bicep-lab --output table
+az deployment group list --resource-group rg-bicep-lab --output table
+az group list --output table
+az account show --output table
+az account list --output table
+az bicep version
 
 
 ## Networking: Network Security Group
