@@ -15,6 +15,8 @@ The goal of this repository is to build a collection of modular, reusable, and c
 | `az group list --output table` | List resource groups. |
 | `az bicep version` | Show the Bicep version. |
 | `az bicep build --file main.bicep` | Check and compile a Bicep template. |
+| `az deployment sub validate --location westeurope --template-file .\rg-ex1_main.bicep --parameters .\params\rg-ex1.bicepparam` | Create resource group on subscription level |
+| `az resource list --resource-group <rg> --output table` | List resources in a resource group. |
 | `az deployment group validate --resource-group <rg> --template-file main.bicep --parameters main.bicepparam` | Validate a deployment without applying changes. |
 | `az deployment group what-if --resource-group <rg> --template-file main.bicep --parameters main.bicepparam` | Preview changes before deployment. |
 | `az deployment group create --resource-group <rg> --template-file main.bicep --parameters main.bicepparam` | Deploy the template. |
@@ -22,6 +24,9 @@ The goal of this repository is to build a collection of modular, reusable, and c
 | `az resource list --resource-group <rg> --output table` | List resources in a resource group. |
 | `az deployment operation group list --resource-group <rg> --name <deployment-name>` | Check deployment operations and errors. |
 | `az group delete --name <rg>` | Delete a resource group and all its resources. **Use with caution.** |
+| `az group export -n rg-storage-lab > exported.json` | Export the resource group in JSON format |
+| `az group delete -n "rg-storage-lab" --yes` | Deletes the resource group and it's resources |
+ 
 
 Replace `<rg>` with the resource group name and `<deployment-name>` with the deployment name.
 
