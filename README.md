@@ -4,6 +4,87 @@ Reusable Azure infrastructure patterns implemented with Bicep.
 
 The goal of this repository is to build a collection of modular, reusable, and configurable Azure infrastructure templates, from individual resources to complete infrastructure patterns.
 
+
+Azure CLI — Quick Reference
+
+Command
+
+Description
+
+az login
+
+Sign in to Azure.
+
+az account list --output table
+
+List available subscriptions.
+
+az account show
+
+Show the current subscription.
+
+az account set --subscription "<subscription-id>"
+
+Select a subscription.
+
+az group list --output table
+
+List resource groups.
+
+az bicep version
+
+Show the Bicep version.
+
+az bicep build --file main.bicep
+
+Check and compile a Bicep template.
+
+az deployment group validate --resource-group <rg> --template-file main.bicep --parameters main.bicepparam
+
+Validate a deployment without applying changes.
+
+az deployment group what-if --resource-group <rg> --template-file main.bicep --parameters main.bicepparam
+
+Preview the changes before deployment.
+
+az deployment group create --resource-group <rg> --template-file main.bicep --parameters main.bicepparam
+
+Deploy the template.
+
+az deployment group list --resource-group <rg> --output table
+
+List deployments in a resource group.
+
+az resource list --resource-group <rg> --output table
+
+List resources in a resource group.
+
+az deployment operation group list --resource-group <rg> --name <deployment-name>
+
+Check the operations and errors of a deployment.
+
+az group delete --name <rg>
+
+Delete a resource group and its resources. Use with caution.
+
+Replace <rg> with the resource group name and <deployment-name> with the deployment name.
+
+Recommended workflow:
+
+az login
+
+az account set --subscription "<subscription-id>"
+
+az bicep build --file main.bicep
+
+az deployment group validate ...
+
+az deployment group what-if ...
+
+az deployment group create ...
+
+Always review the what-if output before deploying.
+
 ## Modules
 
 ### Networking
